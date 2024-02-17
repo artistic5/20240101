@@ -26,11 +26,8 @@ $outtext .= "return [\n";
 for ($raceNumber = 1; $raceNumber <= $totalRaces; $raceNumber++) {
     if(!isset($allRacesRunners[$raceNumber])) continue;
     if(isset($oldData)){
-        if(isset($oldData[$raceNumber]['places'])) $oldPlaces = explode(", ", $oldData[$raceNumber]['places']);
         if(isset($oldData[$raceNumber]['favorites'])) $oldFavorites = explode(", ", $oldData[$raceNumber]['favorites']);
     }
-    if(isset($oldPlaces)) $places = $oldPlaces;
-    else $places = [];
     if(isset($oldFavorites)) $favorites = $oldFavorites;
     else $favorites = [];
     
@@ -46,66 +43,28 @@ for ($raceNumber = 1; $raceNumber <= $totalRaces; $raceNumber++) {
     $racetext .= "\t\t*/\n";
     $racetext .= "\t\t'Favorite'  =>  '$favorite',\n";   
     $racetext .= "\t\t'favorites' => '" . implode(", ", $favorites) . "',\n";
-    $trio1 = $raceData1['trio'];
+    $win1 = $raceData1['win'];
     $allTrioValues1 = [];
-    foreach($trio1 as $trioItem){
-        $allTrioValues1 = array_values(array_unique(array_merge($allTrioValues1, $trioItem)));
-    }
-    //Sort  allTrioValues1 by odds
-    $qplsOdds = [];
-    foreach($allTrioValues1 as $iIndex){
-        if(isset($allRacesOdds[$raceNumber][$iIndex])) $qplsOdds[$iIndex] = $allRacesOdds[$raceNumber][$iIndex];
-    }
-    asort($qplsOdds);
-    $allTrioValues1 = array_keys($qplsOdds);
-    // $qin1 = array_slice($allTrioValues1, 0, 6);
-    $qin1 = $allTrioValues1;
-
-    $unionF = $qin1;
-    $interF = $qin1;
+    $unionW = $win1;
+    $interW = $win1;
     foreach($favorites as $F){
         $raceDataF = $history[$raceNumber][$F];
-        $trioF = $raceDataF['trio'];
-        $allTrioValuesF = [];
-        foreach($trioF as $trioItemF){
-           $allTrioValuesF = array_values(array_unique(array_merge($allTrioValuesF, $trioItemF)));
-        }
-        //Sort  allTrioValuesF by odds
-        $qplsOdds = [];
-        foreach($allTrioValuesF as $iIndex){
-           if(isset($allRacesOdds[$raceNumber][$iIndex])) $qplsOdds[$iIndex] = $allRacesOdds[$raceNumber][$iIndex];
-        }
-        asort($qplsOdds);
-        $allTrioValuesF = array_keys($qplsOdds);
-        //$allTrioValuesF = array_slice($allTrioValuesF, 0, 6);
-        $unionF = array_values(array_unique(array_merge($unionF, $allTrioValuesF)));
-        $interF = array_intersect($interF, $allTrioValuesF);
-        $racetext .= "\t\t'Trio values(Fav: $F)' =>  '" . implode(", ", $allTrioValuesF) . "',\n";
+        $winF = $raceDataF['win'];
+        $racetext .= "\t\t'Win values(Fav: $F)' =>  '" . implode(", ", $winF) . "',\n";
+        if(!empty($winF)) $interW = array_intersect($interW, $winF);
+        $unionW = array_values(array_unique(array_merge($unionW, $winF)));
     }
-    //Sort  unionF by odds
+    //Sort  unionW by odds
     $qplsOdds = [];
-    foreach($unionF as $iIndex){
+    foreach($unionW as $iIndex){
        if(isset($allRacesOdds[$raceNumber][$iIndex])) $qplsOdds[$iIndex] = $allRacesOdds[$raceNumber][$iIndex];
     }
     asort($qplsOdds);
-    $unionF = array_keys($qplsOdds);
-    $racetext .= "\t\t'unionF(count: " . count($unionF) . ")' =>  '" . implode(", ", $unionF) . "',\n";
-    $racetext .= "\t\t'interF(count: " . count($interF) . ")' =>  '" . implode(", ", $interF) . "',\n";
-    if(count($unionF) >= 5){
-        $place1 = $unionF[3];
-        $place2 = $unionF[4];
-        $racetext .= "\t\t'Place' =>  '" . $place1 . ", " . $place2 . "',\n";
-        if(!in_array($place1, $places)) $places[] = $place1;
-        if(!in_array($place2, $places)) $places[] = $place2;
-    }
-    
-    if(!empty($places)){
-        $racetext .= "\t\t'places' => '" . implode(", ", $places) . "',\n";
-    }
+    $unionW = array_keys($qplsOdds);
+    $racetext .= "\t\t'interW' =>  '" . implode(", ", $interW) . "',\n";
+    $racetext .= "\t\t'unionW(count: " . count($unionW) . ")' =>  '" . implode(", ", $unionW) . "',\n";
     $racetext .= "\t],\n";
-    unset($oldPlaces);
     unset($oldFavorites);
-    unset($places);
     unset($favorites);
     $outtext .= $racetext;
 }
