@@ -8,8 +8,8 @@ $currentDir = __DIR__ . DIRECTORY_SEPARATOR . $raceDate;
 
 $allRacesOdds = include($currentDir . DIRECTORY_SEPARATOR . "odds.php");
 $history = include(__DIR__ . DIRECTORY_SEPARATOR . "winhistory.php");
+$matrix = include(__DIR__ . DIRECTORY_SEPARATOR . "matrix.php");
 $outFile = $currentDir . DIRECTORY_SEPARATOR . "$step.php";
-$newFile = $currentDir . DIRECTORY_SEPARATOR . "winplace.php";
 
 if(file_exists($outFile)){
     $oldData = include($outFile);
@@ -17,92 +17,67 @@ if(file_exists($outFile)){
 
 $totalRaces = count($allRacesOdds);
 
-$globals = [];
-
 $outtext = "<?php\n\n";
 $outtext .= "return [\n";
-
-$shit = [];
-
 for ($raceNumber = 1; $raceNumber <= $totalRaces; $raceNumber++) {
     if(!isset($allRacesOdds[$raceNumber])) continue;
-    $globals[$raceNumber] = [];
     if(isset($oldData)){
         if(isset($oldData[$raceNumber]['favorites'])) $oldFavorites = explode(", ", $oldData[$raceNumber]['favorites']);
-        if(isset($oldData[$raceNumber]['additional favorites'])) $oldAddedFavorites = explode(", ", $oldData[$raceNumber]['additional favorites']);
+        if(isset($oldData[$raceNumber]['official win'])) $officialWin = explode(", ", $oldData[$raceNumber]['official win']);
     }
     if(isset($oldFavorites)) $favorites = $oldFavorites;
     else $favorites = [];
-
-    if(isset($oldAddedFavorites)) $addedFavorites = $oldAddedFavorites;
-    else $addedFavorites = [];
-
-    $sets = [];
-
     $winsArray = $allRacesOdds[$raceNumber];
     asort($winsArray);
     $runners = array_keys($winsArray);
     $favorite = $runners[0];
-    if(count($favorites) < 3){
-        if(!in_array($favorite, $favorites)) $favorites[] = $favorite;
-    }
-    else{
-        if(!in_array($favorite, $addedFavorites) && !in_array($favorite, $favorites)) $addedFavorites[] = $favorite;
-    }
+    if(!in_array($favorite, $favorites)) $favorites[] = $favorite;
     sort($runners);
+    sort($favorites);
     $racetext = "";
     $racetext .= "\t'$raceNumber' => [\n";
     $racetext .= "\t\t/**\n";
     $racetext .= "\t\tRace $raceNumber\n";
     $racetext .= "\t\t*/\n";
     $racetext .= "\t\t'favorites' => '" . implode(", ", $favorites) . "',\n"; 
-    if(!empty($addedFavorites))  {
-        $racetext .= "\t\t'additional favorites' => '" . implode(", ", $addedFavorites) . "',\n"; 
+   
+    if(isset($officialWin)){
+        $racetext .= "\t\t'official win' => '" . implode(", ", $officialWin) . "',\n"; 
     }
-    $favorites = array_merge($favorites, $addedFavorites);
-    $globals[$raceNumber]['favorites'] = $favorites;
-    foreach($favorites as $one){
-        if(isset($history[$raceNumber][$one]['win'])){
-            $winners = array_intersect($history[$raceNumber][$one]['win'], $runners);
-            $sets[$one] = $winners;
-        } 
-    }
-    foreach($sets as $f => $s){
-        if(in_array(3, $s) && in_array(4, $s) && in_array(5, $s)){
-            $racetext .= "\t\t'Fav $f(win)' => '" . implode(", ", $s) . "',//count: " . count($s) . "\n";
-            $globals[$raceNumber]['win'] = $s;
-            if(!in_array($f, $shit)) $shit[] = $f;
+   
+    $union = [];
+    $L = [];
+    $R = [];
+    $golden = [];
+    foreach($favorites as $F){
+        $win = array_intersect($history[$raceNumber][$F]['win'], $runners);
+        $union = array_values(array_unique(array_merge($union, $win)));
+        for($bo =1; $bo <= 14; $bo++){
+            if(isset($matrix[$raceNumber][$F][$bo])){
+                if($matrix[$raceNumber][$F][$bo] === true){
+                    $min = min($F, $bo);
+                    if($F % 2 === 0 && $bo % 2 === 0 && $F > $bo && !in_array($min, $golden)) $golden[] = $min;
+                  $racetext .= "\t\t'Favs $F, $bo' => 'true',\n"; 
+                  if(!in_array($F, $L)) $L[] = $F;
+                  if(!in_array($bo, $R)) $R[] = $bo;
+                }
+            }
         }
+    }
+    sort($union);
+    $racetext .= "\t\t'win hist' => '" . implode(", ", $union) . "',//count: " . count($union) . "\n"; 
+    $shit = array_values(array_unique(array_merge($L, $R)));
+    sort($shit);
+    if(!empty($shit)){
+        $racetext .= "\t\t'shit' => '" . implode(", ", $shit) . "',\n"; 
+    }
+    if(!empty($golden)){
+        $racetext .= "\t\t'gold' => '" . implode(", ", $golden) . "',\n"; 
     }
     $racetext .= "\t],\n";
     unset($oldFavorites);
     unset($favorites);
-    unset($oldAddedFavorites);
-    unset($addedFavorites);
     $outtext .= $racetext;
 }
-sort($shit);
-$outtext .= "\t\t//'shit' => '" . implode(", ", $shit) . "',\n"; 
 $outtext .= "];\n";
 file_put_contents($outFile, $outtext);
-
-$newtext = "<?php\n\n";
-$newtext .= "return [\n";
-for ($raceNumber = 1; $raceNumber <= $totalRaces; $raceNumber++) {
-    $racetext = "";
-    $racetext .= "\t'$raceNumber' => [\n";
-    $racetext .= "\t\t/**\n";
-    $racetext .= "\t\tRace $raceNumber\n";
-    $racetext .= "\t\t*/\n";
-    $place = array_intersect($globals[$raceNumber]['favorites'], $shit);
-    if(!empty($place)){
-        $racetext .= "\t\t'wp' => '" . implode(", ", $place) . "',\n"; 
-    }
-    if(isset($globals[$raceNumber]['win'])){
-        $racetext .= "\t\t'win' => '" . implode(", ", $globals[$raceNumber]['win']) . "',\n"; 
-    }
-    $racetext .= "\t],\n";
-    $newtext .= $racetext;
-}
-$newtext .= "];\n";
-file_put_contents($newFile, $newtext);
