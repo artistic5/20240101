@@ -19,9 +19,9 @@ return [
 		/**
 		Race 3
 		*/
-		'favorites' => '10',
+		'favorites' => '4, 10',
 		'Favs 10, 5' => 'true',
-		'win hist' => '3, 4, 9',//count: 3
+		'win hist' => '2, 3, 4, 5, 6, 8, 9, 11',//count: 8
 		'shit' => '5, 10',
 		'gold' => '5',
 	],
@@ -58,10 +58,14 @@ return [
 		/**
 		Race 7
 		*/
-		'favorites' => '3, 6',
+		'favorites' => '3, 6, 8',
 		'Favs 6, 9' => 'true',
-		'win hist' => '1, 2, 3, 6, 9, 10',//count: 6
-		'shit' => '6, 9',
+		'Favs 8, 2' => 'true',
+		'Favs 8, 9' => 'true',
+		'Favs 8, 12' => 'true',
+		'win hist' => '1, 2, 3, 6, 8, 9, 10',//count: 7
+		'shit' => '2, 6, 8, 9, 12',
+		'gold' => '2',
 	],
 	'8' => [
 		/**
