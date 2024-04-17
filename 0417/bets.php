@@ -30,7 +30,7 @@ return [
 		/**
 		Race 4
 		*/
-		'favorites' => '2, 6, 11, 12',
+		'favorites' => '2, 6, 7, 11, 12',
 		'Favs 6, 10' => 'true',
 		'Favs 11, 1' => 'true',
 		'Favs 11, 7' => 'true',
