@@ -59,12 +59,9 @@ for ($raceNumber = 1; $raceNumber <= $totalRaces; $raceNumber++) {
                     if($F % 2 === 0 && $bo % 2 === 0 && $F > $bo && !in_array($min, $golden)) $golden[] = $min;
                     if($F % 3 === 0 && $bo % 3 === 0 && $F > $bo && !in_array($min, $golden)) $golden[] = $min;
                     if($F % 4 === 0 && $bo % 4 === 0 && $F > $bo && !in_array($min, $golden)) $golden[] = $min;
-                    if($F % 5 === 0 && $bo % 5 === 0 && $F > $bo && !in_array($min, $golden)) $golden[] = $min;
-                    if($F % 6 === 0 && $bo % 6 === 0 && $F > $bo && !in_array($min, $golden)) $golden[] = $min;
-                    if($F % 7 === 0 && $bo % 7 === 0 && $F > $bo && !in_array($min, $golden)) $golden[] = $min;
-                  $racetext .= "\t\t'Favs $F, $bo' => 'true',\n"; 
-                  if(!in_array($F, $L)) $L[] = $F;
-                  if(!in_array($bo, $R)) $R[] = $bo;
+                    $racetext .= "\t\t'Favs $F, $bo' => 'true',\n"; 
+                    if(!in_array($F, $L)) $L[] = $F;
+                    if(!in_array($bo, $R)) $R[] = $bo;
                 }
             }
         }
