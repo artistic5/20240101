@@ -65,9 +65,8 @@ return [
 		'Favs 6, 9' => 'true',
 		'Favs 8, 2' => 'true',
 		'Favs 8, 9' => 'true',
-		'Favs 8, 12' => 'true',
 		'win hist' => '1, 2, 3, 6, 8, 9, 10',//count: 7
-		'shit' => '2, 6, 8, 9, 12',
+		'shit' => '2, 6, 8, 9',
 		'gold' => '2',
 	],
 	'8' => [
