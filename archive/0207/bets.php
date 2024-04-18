@@ -5,57 +5,71 @@ return [
 		/**
 		Race 1
 		*/
-		'favorites' => '6, 1, 7',
+		'favorites' => '1, 6, 7',
+		'win hist' => '1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12',//count: 12
 	],
 	'2' => [
 		/**
 		Race 2
 		*/
 		'favorites' => '4, 8',
+		'Favs 8, 8' => 'true',
+		'win hist' => '1, 2, 3, 4, 7, 8, 10',//count: 7
+		'shit' => '8',
 	],
 	'3' => [
 		/**
 		Race 3
 		*/
 		'favorites' => '7',
+		'win hist' => '1, 3, 5, 6, 7, 11, 12',//count: 7
 	],
 	'4' => [
 		/**
 		Race 4
 		*/
-		'favorites' => '3, 1, 11',
-		'Fav 3(win)' => '3, 4, 5, 6, 11',//count: 5
+		'favorites' => '1, 3, 11',
+		'Favs 11, 1' => 'true',
+		'win hist' => '1, 2, 3, 4, 5, 6, 8, 10, 11, 12',//count: 10
+		'shit' => '1, 11',
 	],
 	'5' => [
 		/**
 		Race 5
 		*/
-		'favorites' => '7, 1, 2',
+		'favorites' => '1, 2, 7',
+		'win hist' => '1, 2, 3, 4, 5, 7, 8, 9, 10, 11, 12',//count: 11
 	],
 	'6' => [
 		/**
 		Race 6
 		*/
-		'favorites' => '11, 8',
+		'favorites' => '8, 11',
+		'Favs 11, 12' => 'true',
+		'win hist' => '3, 4, 8, 12',//count: 4
+		'shit' => '11, 12',
 	],
 	'7' => [
 		/**
 		Race 7
 		*/
 		'favorites' => '2, 3',
-		'Fav 2(win)' => '2, 3, 4, 5, 6, 7, 9',//count: 7
+		'win hist' => '1, 2, 3, 4, 5, 6, 7, 9, 10',//count: 9
 	],
 	'8' => [
 		/**
 		Race 8
 		*/
-		'favorites' => '11, 4',
+		'favorites' => '4, 11',
+		'Favs 11, 9' => 'true',
+		'win hist' => '1, 2, 3, 4, 6, 7, 8, 9, 12',//count: 9
+		'shit' => '9, 11',
 	],
 	'9' => [
 		/**
 		Race 9
 		*/
-		'favorites' => '5, 1, 3',
+		'favorites' => '1, 3, 5',
+		'win hist' => '1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12',//count: 12
 	],
-		//'shit' => '2, 3',
 ];

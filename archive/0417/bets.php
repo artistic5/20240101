@@ -13,7 +13,7 @@ return [
 		Race 2
 		*/
 		'favorites' => '1',
-		'win hist' => '2, 6, 7, 9',//count: 4
+		'win hist' => '1, 2, 6, 7, 9',//count: 5
 	],
 	'3' => [
 		/**
@@ -79,6 +79,6 @@ return [
 		Race 9
 		*/
 		'favorites' => '4',
-		'win hist' => '4, 5, 6, 7, 9',//count: 5
+		'win hist' => '4, 5, 6, 7, 9, 11',//count: 6
 	],
 ];
