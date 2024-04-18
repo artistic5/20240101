@@ -56,6 +56,7 @@ for ($raceNumber = 1; $raceNumber <= $totalRaces; $raceNumber++) {
             if(isset($matrix[$raceNumber][$F][$bo])){
                 if($matrix[$raceNumber][$F][$bo] === true){
                     if($F % 2 === 0 && $bo == 2) $golden[] = $bo;
+                    if($F % 3 === 0 && $bo == 3) $golden[] = $bo;
                     $racetext .= "\t\t'Favs $F, $bo' => 'true',\n"; 
                     if(!in_array($F, $L)) $L[] = $F;
                     if(!in_array($bo, $R)) $R[] = $bo;
@@ -70,7 +71,7 @@ for ($raceNumber = 1; $raceNumber <= $totalRaces; $raceNumber++) {
     if(!empty($shit)){
         $racetext .= "\t\t'shit' => '" . implode(", ", $shit) . "',\n"; 
     }
-    if(!empty($golden)){
+    if(!empty($golden) && count($favorites) >= 2){
         $racetext .= "\t\t'gold' => '" . implode(", ", $golden) . "',\n"; 
     }
     $racetext .= "\t],\n";
