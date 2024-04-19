@@ -81,12 +81,13 @@ return [
 		/**
 		Race 10
 		*/
-		'favorites' => '3, 11',
+		'favorites' => '3, 4, 11',
 		'Favs 3, 3' => 'true',
+		'Favs 4, 3' => 'true',
 		'Favs 11, 3' => 'true',
 		'Favs 11, 11' => 'true',
 		'win hist' => '1, 3, 4, 6, 10, 11, 12',//count: 7
-		'shit' => '3, 11',
+		'shit' => '3, 4, 11',
 		'gold' => '3',
 	],
 ];
