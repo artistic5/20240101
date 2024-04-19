@@ -14,8 +14,10 @@ return [
 		/**
 		Race 2
 		*/
-		'favorites' => '2',
-		'win hist' => '2, 4, 5, 6, 7, 8, 9, 12, 13',//count: 9
+		'favorites' => '2, 12',
+		'Favs 12, 13' => 'true',
+		'win hist' => '2, 4, 5, 6, 7, 8, 9, 10, 12, 13',//count: 10
+		'shit' => '12, 13',
 	],
 	'3' => [
 		/**
