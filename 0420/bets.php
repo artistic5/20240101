@@ -5,8 +5,8 @@ return [
 		/**
 		Race 1
 		*/
-		'favorites' => '10',
-		'win hist' => '1, 3, 4, 5, 8, 9, 10, 11',//count: 8
+		'favorites' => '1, 10',
+		'win hist' => '1, 3, 4, 5, 7, 8, 9, 10, 11',//count: 9
 	],
 	'2' => [
 		/**
@@ -33,10 +33,10 @@ return [
 		/**
 		Race 5
 		*/
-		'favorites' => '8',
+		'favorites' => '1, 8',
 		'Favs 8, 4' => 'true',
 		'Favs 8, 11' => 'true',
-		'win hist' => '1, 2, 4, 5, 7, 8, 9, 11, 12',//count: 9
+		'win hist' => '1, 2, 3, 4, 5, 7, 8, 9, 10, 11, 12',//count: 11
 		'shit' => '4, 8, 11',
 	],
 	'6' => [
