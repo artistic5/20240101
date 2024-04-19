@@ -58,8 +58,8 @@ return [
 		/**
 		Race 7
 		*/
-		'favorites' => '5, 14',
-		'win hist' => '2, 5, 7, 10, 12',//count: 5
+		'favorites' => '4, 5, 14',
+		'win hist' => '1, 2, 3, 4, 5, 7, 8, 10, 11, 12',//count: 10
 	],
 	'8' => [
 		/**
