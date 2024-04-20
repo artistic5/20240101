@@ -49,6 +49,7 @@ for ($raceNumber = 1; $raceNumber <= $totalRaces; $raceNumber++) {
     $L = [];
     $R = [];
     $golden = [];
+    $good = [];
     foreach($favorites as $F){
         $win = array_intersect($history[$raceNumber][$F]['win'], $runners);
         $union = array_values(array_unique(array_merge($union, $win)));
@@ -62,14 +63,24 @@ for ($raceNumber = 1; $raceNumber <= $totalRaces; $raceNumber++) {
                     if(!in_array($bo, $R)) $R[] = $bo;
                 }
             }
+            if(isset($matrix[$raceNumber][$bo][$F])){
+                if($matrix[$raceNumber][$bo][$F] === true){
+                       if(!in_array($F, $good)) $good[] = $F; 
+                }
+            }
         }
     }
+   
     sort($union);
     $racetext .= "\t\t'win hist' => '" . implode(", ", $union) . "',//count: " . count($union) . "\n"; 
     $shit = array_values(array_unique(array_merge($L, $R)));
     sort($shit);
     if(!empty($shit)){
         $racetext .= "\t\t'shit' => '" . implode(", ", $shit) . "',\n"; 
+    }
+    $place = array_intersect($good, $shit);
+    if(!empty($place)){
+        $racetext .= "\t\t'place' => '" . implode(", ", $place) . "',\n"; 
     }
     if(!empty($golden) && count($favorites) >= 2){
         $racetext .= "\t\t'gold' => '" . implode(", ", $golden) . "',\n"; 
