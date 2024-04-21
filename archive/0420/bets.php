@@ -12,33 +12,24 @@ return [
 		Race 2
 		*/
 		'favorites' => '2, 5, 10, 12',
-		'placers(Fav 10)' => '7',
-		'place' => '7',
 	],
 	'3' => [
 		/**
 		Race 3
 		*/
 		'favorites' => '3, 4, 5',
-		'placers(Fav 5)' => '3',
-		'place' => '3',
 	],
 	'4' => [
 		/**
 		Race 4
 		*/
 		'favorites' => '1, 3, 5, 9, 12',
-		'placers(Fav 5)' => '5',
-		'placers(Fav 9)' => '1, 5, 6',
-		'place' => '5, 1, 6',
 	],
 	'5' => [
 		/**
 		Race 5
 		*/
 		'favorites' => '1, 2, 6, 8',
-		'placers(Fav 8)' => '10',
-		'place' => '10',
 	],
 	'6' => [
 		/**
@@ -51,8 +42,6 @@ return [
 		Race 7
 		*/
 		'favorites' => '1, 3, 4, 5, 14',
-		'placers(Fav 14)' => '10, 11, 12',
-		'place' => '10, 11, 12',
 	],
 	'8' => [
 		/**
@@ -71,8 +60,5 @@ return [
 		Race 10
 		*/
 		'favorites' => '3, 4, 11',
-		'placers(Fav 3)' => '3',
-		'placers(Fav 4)' => '3',
-		'place' => '3',
 	],
 ];
