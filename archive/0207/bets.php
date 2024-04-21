@@ -36,8 +36,8 @@ return [
 		Race 6
 		*/
 		'favorites' => '8, 11',
-		'placers(Fav 11)' => '12',
-		'place' => '12',
+		'placers(Fav 11)' => '2, 11, 12',
+		'place' => '2, 11, 12',
 	],
 	'7' => [
 		/**
