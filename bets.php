@@ -7,8 +7,7 @@ $raceDate = trim($argv[1]);
 $currentDir = __DIR__ . DIRECTORY_SEPARATOR . $raceDate;
 
 $allRacesOdds = include($currentDir . DIRECTORY_SEPARATOR . "odds.php");
-$history = include(__DIR__ . DIRECTORY_SEPARATOR . "winhistory.php");
-$matrix = include(__DIR__ . DIRECTORY_SEPARATOR . "matrix.php");
+$placers = include(__DIR__ . DIRECTORY_SEPARATOR . "placers.php");
 $outFile = $currentDir . DIRECTORY_SEPARATOR . "$step.php";
 
 if(file_exists($outFile)){
@@ -44,46 +43,17 @@ for ($raceNumber = 1; $raceNumber <= $totalRaces; $raceNumber++) {
     if(isset($officialWin)){
         $racetext .= "\t\t'official win' => '" . implode(", ", $officialWin) . "',\n"; 
     }
-   
     $union = [];
-    $L = [];
-    $R = [];
-    $golden = [];
-    $good = [];
     foreach($favorites as $F){
-        $win = array_intersect($history[$raceNumber][$F]['win'], $runners);
-        $union = array_values(array_unique(array_merge($union, $win)));
-        foreach($union as $bo){
-            if(isset($matrix[$raceNumber][$F][$bo])){
-                if($matrix[$raceNumber][$F][$bo] === true){
-                    if($F % 2 === 0 && $bo == 2) $golden[] = $bo;
-                    if($F % 3 === 0 && $bo == 3) $golden[] = $bo;
-                    $racetext .= "\t\t'Favs $F, $bo' => 'true',\n"; 
-                    if(!in_array($F, $L)) $L[] = $F;
-                    if(!in_array($bo, $R)) $R[] = $bo;
-                }
-            }
-            if(isset($matrix[$raceNumber][$bo][$F])){
-                if($matrix[$raceNumber][$bo][$F] === true){
-                       if(!in_array($F, $good)) $good[] = $F; 
-                }
-            }
+        if(isset($placers[$raceNumber][$F])){
+            $candidates = array_intersect(explode(", ", $placers[$raceNumber][$F]), $runners);
+            $racetext .= "\t\t'placers(Fav $F)' => '" . implode(", ", $candidates) . "',\n"; 
+            $union = array_values(array_unique(array_merge($union, $candidates)));
         }
     }
    
-    sort($union);
-    $racetext .= "\t\t'win hist' => '" . implode(", ", $union) . "',//count: " . count($union) . "\n"; 
-    $shit = array_values(array_unique(array_merge($L, $R)));
-    sort($shit);
-    if(!empty($shit)){
-        $racetext .= "\t\t'shit' => '" . implode(", ", $shit) . "',\n"; 
-    }
-    $place = array_intersect($good, $shit);
-    if(!empty($place)){
-        $racetext .= "\t\t'place' => '" . implode(", ", $place) . "',\n"; 
-    }
-    if(!empty($golden) && count($favorites) >= 2){
-        $racetext .= "\t\t'gold' => '" . implode(", ", $golden) . "',\n"; 
+    if(!empty($union)){
+        $racetext .= "\t\t'place' => '" . implode(", ", $union) . "',\n"; 
     }
     $racetext .= "\t],\n";
     unset($oldFavorites);
