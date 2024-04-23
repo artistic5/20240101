@@ -11,7 +11,7 @@ return [
 		/**
 		Race 2
 		*/
-		'favorites' => '7',
+		'favorites' => '1, 7',
 	],
 	'3' => [
 		/**
@@ -53,6 +53,7 @@ return [
 		/**
 		Race 9
 		*/
-		'favorites' => '4',
+		'favorites' => '1, 4',
+		'place' => '7',
 	],
 ];
