@@ -53,7 +53,7 @@ for ($raceNumber = 1; $raceNumber <= $totalRaces; $raceNumber++) {
         }
         else $inter = array_intersect($inter, $candidates);
     }
-   
+    if(!empty($inter)) $racetext .= "\t\t'inter' => '" . implode(", ", array_intersect($favorites, $inter)) . "',\n"; 
     if(isset($goodOnes[$raceNumber]) && !empty($inter) && count($favorites) >= 2){
         $goods = explode(", ", $goodOnes[$raceNumber]);
         $inter = array_intersect($inter, $goods);
