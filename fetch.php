@@ -22,21 +22,27 @@ exec("git config --global advice.detachedHead false");
 foreach($history as $version){
     exec("git show --no-patch --format=%ci $version; ls",$year);
     $year = substr($year[0], 0, 4);
-    if($year < 2023) continue;
+    if($year < 2022) continue;
     exec("git checkout $version; ls",$command_output);
     foreach($command_output as $raceDate){
         if(is_dir($raceDate) && preg_match("/^[0-9]+$/", $raceDate)) {
+            if($raceDate == "1204") continue;
             if(!isset($matrix["$year$raceDate"])) $matrix["$year$raceDate"] = [];
             $oddsFile1 = $raceDate . DIRECTORY_SEPARATOR . "odds.php";
-            $oddsFile2 = $raceDate . DIRECTORY_SEPARATOR . "getodds.php";
+            $oddsFile2 = $raceDate . DIRECTORY_SEPARATOR . "plaodds.php";
+            $oddsFile3 = $raceDate . DIRECTORY_SEPARATOR . "winodds.php";
+            $oddsFile4 = $raceDate . DIRECTORY_SEPARATOR . "getodds.php";
             if(file_exists($oddsFile1)) $oddsFile = $oddsFile1;
             elseif(file_exists($oddsFile2)) $oddsFile = $oddsFile2;
+            elseif(file_exists($oddsFile3)) $oddsFile = $oddsFile3;
+            elseif(file_exists($oddsFile4)) $oddsFile = $oddsFile4;
             if(!isset($oddsFile)) continue;
             if(file_exists($oddsFile)){
                 $odds = include($oddsFile);
                 foreach($odds as $raceNumber => $raceOdds){
                     asort($raceOdds);
                     $runners = array_keys($raceOdds);
+                    if(!isset($runners[0])) continue;
                     $favorite = $runners[0];
                     if(!isset($matrix["$year$raceDate"][$raceNumber])) $matrix["$year$raceDate"][$raceNumber] = [$favorite];
                     else{
