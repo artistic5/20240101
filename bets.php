@@ -137,12 +137,14 @@ for ($raceNumber = 1; $raceNumber <= $totalRaces; $raceNumber++) {
     }
   
     if(count($inter) >= 2 && count($favorites) >= 3 && count($set2) < 7){
-        $racetext .= "\t\t'win($10)' => '" . implode(", ", $set2) . "',\n"; 
-        $totalBets = 10 * count($set2);
         $racetext .= "\t\t'qin($20)' => '" . implode(", ", $favorites) . "',\n"; 
-        $totalBets += 20 * combination(2, count($favorites));
-        $racetext .= "\t\t'qin($10)' => '" . implode(", ", $favorites) . " X " . implode(", ", $set2)  . "',\n"; 
-        $totalBets += 10 * count($favorites) * count($set2);
+        $totalBets = 20 * combination(2, count($favorites));
+        if(!empty($set2)){
+            $racetext .= "\t\t'win($10)' => '" . implode(", ", $set2) . "',\n"; 
+            $totalBets += 10 * count($set2);
+            $racetext .= "\t\t'qin($10)' => '" . implode(", ", $favorites) . " X " . implode(", ", $set2)  . "',\n"; 
+            $totalBets += 10 * count($favorites) * count($set2);
+        }
         $racetext .= "\t\t'trio($10)' => '" . implode(", ", $favorites) . "',\n"; 
         $totalBets += 10 * combination(3, count($favorites));
         
