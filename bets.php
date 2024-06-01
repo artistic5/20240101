@@ -10,40 +10,11 @@ function combination($p, $n){
     if($n < $p) return 0;
     return factorial($n) / (factorial($p) * factorial($n - $p));
 }
-function getWeights($odds, $profit = 10, $precision = 10){
-    $weights = [];
-    $totalWeights = 0;
-    foreach($odds as $key => $value){
-        $weights[$key] = 1;
-        $totalWeights += $weights[$key];
-    }
-    $criterion = true;
-    foreach($odds as $key => $value){
-        $criterion = $criterion && ($weights[$key] * $odds[$key] >= $totalWeights + $profit);
-    }
-    $iterations = 0;
-    while($criterion === false){
-        $criterion = true;
-        foreach($odds as $key => $value){
-            if($weights[$key] * $odds[$key] < $totalWeights + $profit){
-                $weights[$key] +=1;
-                $totalWeights += 1;
-            }
-            $criterion = $criterion && ($weights[$key] * $odds[$key] >= $totalWeights + $profit);
-        }
-        $iterations ++;
-        if($iterations == $precision) {
-            $failed = [];
-            foreach($odds as $key => $value) $failed[$key] = 0;
-            return $failed;
-        }
-    }
-    return $weights;
-}
+
 if(!isset($argv[1])) die("Race Date Not Entered!!\n");
 
 $total = 0;
-
+$totalWin = 0;
 $step = "bets";
 $raceDate = trim($argv[1]);
 $currentDir = __DIR__ . DIRECTORY_SEPARATOR . $raceDate;
@@ -53,6 +24,7 @@ $winOddsFile = $currentDir . DIRECTORY_SEPARATOR . "winodds.php";
 if(file_exists($winOddsFile)) $allWinOdds = include($winOddsFile);
 if(file_exists($oddsFile)) $allRacesOdds = include($oddsFile);
 $history = include(__DIR__ . DIRECTORY_SEPARATOR . "history.php");
+$threes = include(__DIR__ . DIRECTORY_SEPARATOR . "threes.php");
 $outFile = $currentDir . DIRECTORY_SEPARATOR . "$step.php";
 
 if(file_exists($outFile)){
@@ -119,23 +91,49 @@ for ($raceNumber = 1; $raceNumber <= $totalRaces; $raceNumber++) {
         $racetext .= "\t\t],\n"; 
     }
     $firstSet = true;
-    $union = [];
     foreach($favorites as $F){
         $candidates = array_intersect($history[$raceNumber][$F]["win"], $runners);
-        $union = array_values(array_unique(array_merge($union, $candidates)));
         if($firstSet) {
             $inter = $candidates;
             $firstSet = false;
         }
         else $inter = array_intersect($inter, $candidates);
     }
-    sort($union);
     sort($inter);
     $inter = array_intersect($favorites, $inter);
+    if(!empty($inter)){
+        $racetext .= "\t\t'inter' => '" . implode(", ", $inter) . "',//count: " . count($inter) . "\n";
+    }
     $set2 = array_values(array_unique(array_merge($sums, $mults)));
+    sort($set2);
     $set2 = array_diff($set2, $favorites);
+    $surePlace = [];
+    foreach($favorites as $one){
+        $union = []; 
+        foreach($runners as $two){
+            if($two !== $one){
+                if($one < $two) $index = "f$one-f$two";
+                else $index = "f$two-f$one";
+                if(isset($threes[$raceNumber][$index])){
+                    $threeSet = explode(", ", $threes[$raceNumber][$index]);
+                    $union = array_values(array_unique(array_merge($union, $threeSet)));
+                }
+            }
+        }
+        sort($union);
+        if(!empty($union)){
+            sort($union);
+            if(in_array($one, array_intersect($favorites, $union))){
+                $surePlace[] = $one;
+            }
+        } 
+    }
+    if(!empty($surePlace)){
+        $racetext .= "\t\t'Place' => '" . implode(", ", $surePlace) . "',\n";
+    }
+  
     if(count($inter) >= 2 && count($favorites) >= 3 && count($set2) < 7){
-        $racetext .= "\t\t'win bet($10)' => '" . implode(", ", $set2) . "',//count: " . count($set2) . "\n"; 
+        $racetext .= "\t\t'win bet($10)' => '" . implode(", ", $set2) . "',\n"; 
         $totalBets = 10 * count($set2);
         $racetext .= "\t\t'qin bet($20)' => '" . implode(", ", $favorites) . "',\n"; 
         $totalBets += 20 * combination(2, count($favorites));
@@ -180,5 +178,6 @@ for ($raceNumber = 1; $raceNumber <= $totalRaces; $raceNumber++) {
     $outtext .= $racetext;
 }
 $outtext .= "];\n";
+$outtext .= "//total place: $totalWin\n";
 $outtext .= "//total: $total\n";
 file_put_contents($outFile, $outtext);
