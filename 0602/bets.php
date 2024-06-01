@@ -50,7 +50,8 @@ return [
 		/**
 		Race 7
 		*/
-		'favorites' => '5',
+		'favorites' => '1, 5',
+		'Place' => '1',
 	],
 	'8' => [
 		/**
