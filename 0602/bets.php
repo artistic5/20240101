@@ -84,7 +84,7 @@ return [
 		/**
 		Race 11
 		*/
-		'favorites' => '6, 7, 13',
+		'favorites' => '4, 6, 7, 13',
 	],
 ];
 //total place: 0
