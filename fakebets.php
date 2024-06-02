@@ -51,10 +51,8 @@ for ($raceNumber = 1; $raceNumber <= $totalRaces; $raceNumber++) {
     $winsArray = $allRacesOdds[$raceNumber];
     asort($winsArray);
     $runners = array_keys($winsArray);
-    $favorite = $runners[0];
-    if(!in_array($favorite, $favorites)) $favorites[] = $favorite;
-    $favorites = array_intersect($favorites, $runners);
-    sort($favorites);
+     sort($favorites);
+    //get the favorite with the highest odd and build an array $fakeFavorites that contains all runners that have better odds than that one
     $sums = [];
     $mults = [];
     foreach($favorites as $one){
