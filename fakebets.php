@@ -15,24 +15,23 @@ if(!isset($argv[1])) die("Race Date Not Entered!!\n");
 
 $total = 0;
 $totalWin = 0;
-$step = "bets";
+$step = "fakebets";
 $raceDate = trim($argv[1]);
 $currentDir = __DIR__ . DIRECTORY_SEPARATOR . $raceDate;
 
 $oddsFile = $currentDir . DIRECTORY_SEPARATOR . "odds.php";
-$winOddsFile = $currentDir . DIRECTORY_SEPARATOR . "winodds.php";
-if(file_exists($winOddsFile)) $allWinOdds = include($winOddsFile);
 if(file_exists($oddsFile)) $allRacesOdds = include($oddsFile);
 $history = include(__DIR__ . DIRECTORY_SEPARATOR . "history.php");
 $threes = include(__DIR__ . DIRECTORY_SEPARATOR . "threes.php");
+$inFile = $currentDir . DIRECTORY_SEPARATOR . "bets.php";
 $outFile = $currentDir . DIRECTORY_SEPARATOR . "$step.php";
 
-if(file_exists($outFile)){
-    $oldData = include($outFile);
+if(file_exists($inFile)){
+    $oldData = include($inFile);
 }
 
 if(file_exists($oddsFile)) $totalRaces = count($allRacesOdds);
-elseif(file_exists($outFile)) $totalRaces = count($oldData);
+elseif(file_exists($inFile)) $totalRaces = count($oldData);
 else die('No input Files!');
 
 $outtext = "<?php\n\n";
