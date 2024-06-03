@@ -52,6 +52,7 @@ for ($raceNumber = 1; $raceNumber <= $totalRaces; $raceNumber++) {
     else{
         $indication = [];
         foreach($others as $other){
+            $favorites = $copy;
             $favorites[] = $other;
             $sums = [];
             $mults = [];
