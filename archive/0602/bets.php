@@ -6,6 +6,7 @@ return [
 		Race 1
 		*/
 		'favorites' => '7, 9, 10',
+		'inter' => '7',//count: 1
 		'Place' => '7, 10',
 	],
 	'2' => [
@@ -36,6 +37,7 @@ return [
 		Race 5
 		*/
 		'favorites' => '1, 13',
+		'inter' => '1',//count: 1
 		'Place' => '1',
 	],
 	'6' => [
@@ -51,6 +53,7 @@ return [
 		Race 7
 		*/
 		'favorites' => '1, 5, 6',
+		'inter' => '1',//count: 1
 		'Place' => '1, 6',
 	],
 	'8' => [
@@ -60,19 +63,14 @@ return [
 		'favorites' => '4, 7, 8',
 		'inter' => '4, 8',//count: 2
 		'Place' => '4, 8',
-		'qin($20)' => '4, 7, 8',
-		'trio($10)' => '4, 7, 8',
-		'win($70)' => '4, 7, 8',
-		'win($70)' => '7, 8',
-		'total bets' => 420,
 	],
 	'9' => [
 		/**
 		Race 9
 		*/
 		'favorites' => '2, 9',
-		'inter' => '2',//count: 1
-		'Place' => '2, 9',
+		'inter' => '2, 9',//count: 2
+		'Place' => '9',
 	],
 	'10' => [
 		/**
