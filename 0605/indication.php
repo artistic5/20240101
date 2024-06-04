@@ -5,8 +5,9 @@ return [
 		/**
 		Race 1
 		*/
-		'favorites' => '5',
-		'indication' => [],
+		'favorites' => '4, 5',
+		'indication' => [1, 10],
+		//CHECK THIS ONE OUT
 	],
 	'2' => [
 		/**
@@ -33,7 +34,7 @@ return [
 		/**
 		Race 5
 		*/
-		'favorites' => '12',
+		'favorites' => '1, 12',
 		'indication' => [],
 	],
 	'6' => [
@@ -61,7 +62,7 @@ return [
 		/**
 		Race 9
 		*/
-		'favorites' => '11',
+		'favorites' => '3, 11',
 		'indication' => [],
 	],
 ];

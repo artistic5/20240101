@@ -5,9 +5,9 @@ return [
 		/**
 		Race 1
 		*/
-		'favorites' => '5',
-		'inter' => '5',//count: 1
-		'Place' => '5',
+		'favorites' => '4, 5',
+		'inter' => '4',//count: 1
+		'Place' => '4, 5',
 	],
 	'2' => [
 		/**
@@ -34,7 +34,8 @@ return [
 		/**
 		Race 5
 		*/
-		'favorites' => '12',
+		'favorites' => '1, 12',
+		'Place' => '1',
 	],
 	'6' => [
 		/**
@@ -60,7 +61,8 @@ return [
 		/**
 		Race 9
 		*/
-		'favorites' => '11',
+		'favorites' => '3, 11',
+		'Place' => '3',
 	],
 ];
 //total place: 0
