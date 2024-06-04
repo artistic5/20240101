@@ -64,16 +64,17 @@ return [
 		/**
 		Race 8
 		*/
-		'favorites' => '6',
+		'favorites' => '3, 6',
 		'inter' => '6',//count: 1
-		'Place' => '6',
+		'Place' => '3, 6',
 	],
 	'9' => [
 		/**
 		Race 9
 		*/
-		'favorites' => '3, 4, 11',
-		'Place' => '3',
+		'favorites' => '2, 3, 4, 11',
+		'inter' => '2',//count: 1
+		'Place' => '2, 3',
 	],
 ];
 //total place: 0
