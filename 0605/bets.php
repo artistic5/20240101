@@ -7,6 +7,7 @@ return [
 		*/
 		'favorites' => '4, 5, 8',
 		'inter' => '4',//count: 1
+		'check' => '5, 8',
 		'Place' => '4, 5',
 	],
 	'2' => [
@@ -15,6 +16,7 @@ return [
 		*/
 		'favorites' => '1, 2, 6',
 		'inter' => '2, 6',//count: 2
+		'check' => '1',
 		'Place' => '6',
 		'qin($20)' => '1, 2, 6',
 		'win($10)' => '3, 7, 8, 12',
@@ -50,6 +52,7 @@ return [
 		Race 6
 		*/
 		'favorites' => '4, 9, 11',
+		'check' => '4',
 		'Place' => '4',
 	],
 	'7' => [
