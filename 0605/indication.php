@@ -54,9 +54,8 @@ return [
 		/**
 		Race 8
 		*/
-		'favorites' => '3, 6',
-		'indication' => [4, 8],
-		//CHECK THIS ONE OUT
+		'favorites' => '3, 6, 12',
+		'indication' => [],
 	],
 	'9' => [
 		/**

@@ -67,8 +67,7 @@ return [
 		/**
 		Race 8
 		*/
-		'favorites' => '3, 6',
-		'inter' => '6',//count: 1
+		'favorites' => '3, 6, 12',
 		'Place' => '3, 6',
 	],
 	'9' => [
