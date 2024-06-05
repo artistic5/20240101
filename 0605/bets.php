@@ -46,15 +46,16 @@ return [
 		/**
 		Race 5
 		*/
-		'favorites' => '1, 9, 12',
-		'Place' => '1',
+		'favorites' => '1, 3, 9, 12',
+		'Place' => '1, 3',
 	],
 	'6' => [
 		/**
 		Race 6
 		*/
-		'favorites' => '3, 4, 9, 11',
-		'Place' => '3, 4',
+		'favorites' => '2, 3, 4, 9, 11',
+		'check' => '2',
+		'Place' => '2, 3, 4',
 	],
 	'7' => [
 		/**
