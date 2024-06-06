@@ -170,7 +170,7 @@ for ($raceNumber = 1; $raceNumber <= $numberOfRaces; $raceNumber++) {
             $totalBets[$raceNumber] += 1 * $unitBet * count($set3);
             $totalWin -= 1 * $unitBet * count($set3);
         }
-        $totalRace[$raceNumber] = 0 - $totalBets[$raceNumber];
+        $totalRace[$raceNumber] -= $totalBets[$raceNumber];
         $racetext .= "\t\t'total bets' => $totalBets[$raceNumber],\n";
         if(isset($officialWin)){
             if(!empty(array_intersect($set2, array_slice($officialWin, 0, 1)))) {
