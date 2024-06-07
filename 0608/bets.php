@@ -57,11 +57,11 @@ return [
 		/**
 		Race 7
 		*/
-		'favorites' => '3, 7',
-		'inter' => '3, 7',//count: 2
-		'win pivots' => '3, 7',
-		'qin pivots' => '3, 7',
-		'trio pivots' => '3, 7',
+		'favorites' => '3, 7, 9',
+		'inter' => '3',//count: 1
+		'win pivots' => '3, 7, 9',
+		'qin pivots' => '3, 7, 9',
+		'trio pivots' => '3, 7, 9',
 	],
 	'8' => [
 		/**
@@ -87,10 +87,10 @@ return [
 		/**
 		Race 10
 		*/
-		'favorites' => '2, 4, 7',
+		'favorites' => '2, 4, 7, 9',
 		'win pivots' => '2, 7',
-		'qin pivots' => '2, 4, 7',
-		'trio pivots' => '2, 4, 7',
+		'qin pivots' => '2, 4, 7, 9',
+		'trio pivots' => '2, 4, 7, 9',
 	],
 ];
 //total win: 0
