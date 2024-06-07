@@ -6,9 +6,13 @@ return [
 		Race 1
 		*/
 		'favorites' => '4, 5, 8',
-		'inter' => '4',//count: 1
+		'inter' => '4, 8',//count: 2
 		'check' => '5, 8',
-		'Place' => '4, 5',
+		'Place' => '4, 5, 8',
+		'qin($20)' => '4, 5, 8',
+		'win($10)' => '9, 12',
+		'qin($10)' => '4, 5, 8 X 9, 12',
+		'trio($10)' => '4, 5, 8',
 	],
 	'2' => [
 		/**
@@ -22,16 +26,15 @@ return [
 		'win($10)' => '3, 7, 8, 12',
 		'qin($10)' => '1, 2, 6 X 3, 7, 8, 12',
 		'trio($10)' => '1, 2, 6',
-		'win($70)' => '1, 2, 6',
-		'win($70)' => '2, 6',
-		'total bets' => 580,
+		'win($100)' => '1, 2, 6',
+		'win($100)' => '2, 6',
 	],
 	'3' => [
 		/**
 		Race 3
 		*/
 		'favorites' => '4, 7',
-		'inter' => '7',//count: 1
+		'inter' => '4, 7',//count: 2
 		'Place' => '4, 7',
 	],
 	'4' => [
@@ -54,15 +57,17 @@ return [
 		Race 6
 		*/
 		'favorites' => '2, 3, 4, 9, 11',
+		'inter' => '11',//count: 1
 		'check' => '2',
-		'Place' => '2, 3, 4',
+		'Place' => '2, 3, 4, 11',
 	],
 	'7' => [
 		/**
 		Race 7
 		*/
 		'favorites' => '4, 6, 10, 11',
-		'Place' => '6',
+		'inter' => '10',//count: 1
+		'Place' => '6, 10',
 	],
 	'8' => [
 		/**
@@ -77,8 +82,11 @@ return [
 		*/
 		'favorites' => '2, 3, 4, 11',
 		'inter' => '2',//count: 1
-		'Place' => '2, 3',
+		'Place' => '3',
 	],
 ];
+//total win: -560
 //total place: 0
+//total qin: -300
+//total trio: -20
 //total: 0

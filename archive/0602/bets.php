@@ -7,7 +7,6 @@ return [
 		*/
 		'favorites' => '7, 9, 10',
 		'inter' => '7',//count: 1
-		'Place' => '7, 10',
 	],
 	'2' => [
 		/**
@@ -54,7 +53,7 @@ return [
 		*/
 		'favorites' => '1, 5, 6',
 		'inter' => '1',//count: 1
-		'Place' => '1, 6',
+		'Place' => '6',
 	],
 	'8' => [
 		/**
@@ -62,7 +61,8 @@ return [
 		*/
 		'favorites' => '4, 7, 8',
 		'inter' => '4, 8',//count: 2
-		'Place' => '4, 8',
+		'check' => '4',
+		'Place' => '8',
 	],
 	'9' => [
 		/**
@@ -85,5 +85,8 @@ return [
 		'favorites' => '4, 6, 7, 13',
 	],
 ];
+//total win: 0
 //total place: 0
+//total qin: 0
+//total trio: 0
 //total: 0
