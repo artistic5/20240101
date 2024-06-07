@@ -114,7 +114,7 @@ for ($raceNumber = 1; $raceNumber <= $numberOfRaces; $raceNumber++) {
     }
     if(!empty($pivots)) $racetext .= "\t\t'trio pivots' => '" . implode(", ", $pivots) . "',\n";
     $unitBet = 100;
-    if(count($runners) >= 10 && count($inter) >= 2 && count($favorites) >= 3 && count($pivots) === 3){
+    if(count($inter) >= 2 && count($favorites) >= 3 && count($pivots) === 3){
         $racetext .= "\t\t'win($" . $unitBet . ")' => '" . end($favorites) . "',\n"; 
         $totalBets[$raceNumber] += 1 * $unitBet;
         $totalWin -= 1 * $unitBet;
