@@ -122,9 +122,11 @@ for ($raceNumber = 1; $raceNumber <= $numberOfRaces; $raceNumber++) {
     if(!empty($qinpivots)) $racetext .= "\t\t'qin pivots' => '" . implode(", ", $qinpivots) . "',\n";
     if(!empty($pivots)) $racetext .= "\t\t'trio pivots' => '" . implode(", ", $pivots) . "',\n";
     $unitBet = 100;
-    if((count($inter) >= 2 
-    || (count($inter) > 0 && !empty(array_diff([2], $inter)) && count($winpivots) === 2 && in_array(end($favorites), $winpivots))) 
-    && count($favorites) >= 3 && count($pivots) === 3){
+    if(
+        (count($inter) >= 2 || (count($inter) > 0 && !empty(array_diff([2], $inter)) && count($winpivots) === 2 && in_array(end($favorites), $winpivots))) 
+        && 
+        count($pivots) === 3
+    ){
         $racetext .= "\t\t'win($" . $unitBet . ")' => '" . end($favorites) . "',\n"; 
         $totalBets[$raceNumber] += 1 * $unitBet;
         $totalWin -= 1 * $unitBet;

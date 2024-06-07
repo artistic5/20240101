@@ -85,11 +85,10 @@ return [
 		/**
 		Race 10
 		*/
-		'favorites' => '2, 7',
-		'inter' => '7',//count: 1
+		'favorites' => '2, 4, 7',
 		'win pivots' => '2, 7',
-		'qin pivots' => '2, 7',
-		'trio pivots' => '2, 7',
+		'qin pivots' => '2, 4, 7',
+		'trio pivots' => '2, 4, 7',
 	],
 ];
 //total win: 0
