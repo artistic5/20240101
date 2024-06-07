@@ -12,8 +12,7 @@ return [
 		/**
 		Race 2
 		*/
-		'favorites' => '7',
-		'inter' => '7',//count: 1
+		'favorites' => '3, 7',
 		'Place' => '7',
 	],
 	'3' => [
