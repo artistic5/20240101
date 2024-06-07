@@ -7,6 +7,7 @@ return [
 		*/
 		'favorites' => '7, 9, 10',
 		'inter' => '7',//count: 1
+		'trio pivots' => '7, 9, 10',
 	],
 	'2' => [
 		/**
@@ -14,6 +15,7 @@ return [
 		*/
 		'favorites' => '2, 3',
 		'inter' => '2',//count: 1
+		'trio pivots' => '2, 3',
 	],
 	'3' => [
 		/**
@@ -21,7 +23,7 @@ return [
 		*/
 		'favorites' => '3, 12',
 		'inter' => '12',//count: 1
-		'Place' => '12',
+		'trio pivots' => '3, 12',
 	],
 	'4' => [
 		/**
@@ -29,7 +31,7 @@ return [
 		*/
 		'favorites' => '1, 10',
 		'inter' => '1, 10',//count: 2
-		'Place' => '1, 10',
+		'trio pivots' => '1, 10',
 	],
 	'5' => [
 		/**
@@ -37,7 +39,7 @@ return [
 		*/
 		'favorites' => '1, 13',
 		'inter' => '1',//count: 1
-		'Place' => '1',
+		'trio pivots' => '1, 13',
 	],
 	'6' => [
 		/**
@@ -45,7 +47,7 @@ return [
 		*/
 		'favorites' => '2, 4',
 		'inter' => '4',//count: 1
-		'Place' => '2',
+		'trio pivots' => '2, 4',
 	],
 	'7' => [
 		/**
@@ -53,7 +55,7 @@ return [
 		*/
 		'favorites' => '1, 5, 6',
 		'inter' => '1',//count: 1
-		'Place' => '6',
+		'trio pivots' => '1, 5, 6',
 	],
 	'8' => [
 		/**
@@ -61,8 +63,7 @@ return [
 		*/
 		'favorites' => '4, 7, 8',
 		'inter' => '4, 8',//count: 2
-		'check' => '4',
-		'Place' => '8',
+		'trio pivots' => '4, 7, 8',
 	],
 	'9' => [
 		/**
@@ -70,19 +71,21 @@ return [
 		*/
 		'favorites' => '2, 9',
 		'inter' => '2, 9',//count: 2
-		'Place' => '9',
+		'trio pivots' => '2, 9',
 	],
 	'10' => [
 		/**
 		Race 10
 		*/
 		'favorites' => '3, 13',
+		'trio pivots' => '3',
 	],
 	'11' => [
 		/**
 		Race 11
 		*/
 		'favorites' => '4, 6, 7, 13',
+		'trio pivots' => '6, 7',
 	],
 ];
 //total win: 0

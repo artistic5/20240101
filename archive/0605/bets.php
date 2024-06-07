@@ -7,8 +7,7 @@ return [
 		*/
 		'favorites' => '4, 5, 8',
 		'inter' => '4, 8',//count: 2
-		'check' => '5, 8',
-		'Place' => '4, 5, 8',
+		'trio pivots' => '4, 5, 8',
 		'qin($20)' => '4, 5, 8',
 		'win($10)' => '9, 12',
 		'qin($10)' => '4, 5, 8 X 9, 12',
@@ -20,8 +19,7 @@ return [
 		*/
 		'favorites' => '1, 2, 6',
 		'inter' => '2, 6',//count: 2
-		'check' => '1',
-		'Place' => '6',
+		'trio pivots' => '1, 2, 6',
 		'qin($20)' => '1, 2, 6',
 		'win($10)' => '3, 7, 8, 12',
 		'qin($10)' => '1, 2, 6 X 3, 7, 8, 12',
@@ -35,7 +33,7 @@ return [
 		*/
 		'favorites' => '4, 7',
 		'inter' => '4, 7',//count: 2
-		'Place' => '4, 7',
+		'trio pivots' => '4, 7',
 	],
 	'4' => [
 		/**
@@ -43,14 +41,14 @@ return [
 		*/
 		'favorites' => '5, 7',
 		'inter' => '5',//count: 1
-		'Place' => '5',
+		'trio pivots' => '5, 7',
 	],
 	'5' => [
 		/**
 		Race 5
 		*/
 		'favorites' => '1, 3, 9, 12',
-		'Place' => '1, 3',
+		'trio pivots' => '1, 3, 9, 12',
 	],
 	'6' => [
 		/**
@@ -58,8 +56,7 @@ return [
 		*/
 		'favorites' => '2, 3, 4, 9, 11',
 		'inter' => '11',//count: 1
-		'check' => '2',
-		'Place' => '2, 3, 4, 11',
+		'trio pivots' => '2, 3, 4, 9, 11',
 	],
 	'7' => [
 		/**
@@ -67,14 +64,14 @@ return [
 		*/
 		'favorites' => '4, 6, 10, 11',
 		'inter' => '10',//count: 1
-		'Place' => '6, 10',
+		'trio pivots' => '4, 6, 10, 11',
 	],
 	'8' => [
 		/**
 		Race 8
 		*/
 		'favorites' => '3, 6, 12',
-		'Place' => '3, 6',
+		'trio pivots' => '3, 6, 12',
 	],
 	'9' => [
 		/**
@@ -82,7 +79,7 @@ return [
 		*/
 		'favorites' => '2, 3, 4, 11',
 		'inter' => '2',//count: 1
-		'Place' => '3',
+		'trio pivots' => '2, 3, 4, 11',
 	],
 ];
 //total win: -560
