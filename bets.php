@@ -125,7 +125,8 @@ for ($raceNumber = 1; $raceNumber <= $numberOfRaces; $raceNumber++) {
     if(
         (count($inter) >= 2 || (count($inter) > 0 && !empty(array_diff([2], $inter)) && count($winpivots) === 2 && in_array(end($favorites), $winpivots))) 
         && 
-        count($pivots) === 3
+        (count($favorites) >= 3) &&
+        (count($pivots) === 3)
     ){
         $racetext .= "\t\t'win($" . $unitBet . ")' => '" . end($favorites) . "',\n"; 
         $totalBets[$raceNumber] += 1 * $unitBet;
