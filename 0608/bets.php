@@ -48,8 +48,9 @@ return [
 		/**
 		Race 7
 		*/
-		'favorites' => '7',
-		'inter' => '7',//count: 1
+		'favorites' => '3, 7',
+		'inter' => '3, 7',//count: 2
+		'trio pivots' => '3, 7',
 	],
 	'8' => [
 		/**
