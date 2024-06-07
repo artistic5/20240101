@@ -39,7 +39,9 @@ return [
 		/**
 		Race 5
 		*/
-		'favorites' => '10',
+		'favorites' => '7, 10',
+		'qin pivots' => '10',
+		'trio pivots' => '10',
 	],
 	'6' => [
 		/**
