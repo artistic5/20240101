@@ -42,7 +42,7 @@ return [
 		/**
 		Race 6
 		*/
-		'favorites' => '2, 4',
+		'favorites' => '2, 4, 12',
 		'inter' => '4',//count: 1
 		'Place' => '2, 4',
 	],
