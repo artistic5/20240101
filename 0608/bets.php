@@ -42,9 +42,9 @@ return [
 		/**
 		Race 6
 		*/
-		'favorites' => '4',
+		'favorites' => '2, 4',
 		'inter' => '4',//count: 1
-		'Place' => '4',
+		'Place' => '2, 4',
 	],
 	'7' => [
 		/**
@@ -64,8 +64,7 @@ return [
 		/**
 		Race 9
 		*/
-		'favorites' => '1',
-		'inter' => '1',//count: 1
+		'favorites' => '1, 11',
 	],
 	'10' => [
 		/**
