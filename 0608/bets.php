@@ -70,7 +70,7 @@ return [
 		/**
 		Race 10
 		*/
-		'favorites' => '7',
+		'favorites' => '2, 7',
 		'inter' => '7',//count: 1
 	],
 ];
