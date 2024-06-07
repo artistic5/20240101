@@ -6,6 +6,8 @@ return [
 		Race 1
 		*/
 		'favorites' => '1, 5, 6, 14',
+		'win pivots' => '1, 14',
+		'qin pivots' => '1, 6, 14',
 		'trio pivots' => '1, 5, 6, 14',
 	],
 	'2' => [
@@ -13,6 +15,7 @@ return [
 		Race 2
 		*/
 		'favorites' => '3, 7, 12',
+		'qin pivots' => '7',
 		'trio pivots' => '7, 12',
 	],
 	'3' => [
@@ -21,6 +24,8 @@ return [
 		*/
 		'favorites' => '2, 7',
 		'inter' => '7',//count: 1
+		'win pivots' => '7',
+		'qin pivots' => '7',
 		'trio pivots' => '2, 7',
 	],
 	'4' => [
@@ -42,6 +47,8 @@ return [
 		*/
 		'favorites' => '2, 4, 12',
 		'inter' => '4',//count: 1
+		'win pivots' => '2, 4',
+		'qin pivots' => '2, 4',
 		'trio pivots' => '2, 4, 12',
 	],
 	'7' => [
@@ -50,6 +57,8 @@ return [
 		*/
 		'favorites' => '3, 7',
 		'inter' => '3, 7',//count: 2
+		'win pivots' => '3, 7',
+		'qin pivots' => '3, 7',
 		'trio pivots' => '3, 7',
 	],
 	'8' => [
@@ -58,6 +67,8 @@ return [
 		*/
 		'favorites' => '1, 2',
 		'inter' => '1',//count: 1
+		'win pivots' => '1',
+		'qin pivots' => '1, 2',
 		'trio pivots' => '1, 2',
 	],
 	'9' => [
@@ -66,6 +77,8 @@ return [
 		*/
 		'favorites' => '1, 2, 3, 9, 11',
 		'inter' => '9',//count: 1
+		'win pivots' => '2, 3, 9',
+		'qin pivots' => '1, 2, 3, 9, 11',
 		'trio pivots' => '1, 2, 3, 9, 11',
 	],
 	'10' => [
@@ -74,6 +87,8 @@ return [
 		*/
 		'favorites' => '2, 7',
 		'inter' => '7',//count: 1
+		'win pivots' => '2, 7',
+		'qin pivots' => '2, 7',
 		'trio pivots' => '2, 7',
 	],
 ];
